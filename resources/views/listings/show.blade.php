@@ -169,12 +169,18 @@
                         <input
                             class="form-control rounded-pill m-1" 
                             style="width: 100px; height: 35px;" 
+<<<<<<< HEAD
                             type="text" 
                             name="userName" 
+=======
+                            type="text"
+                            name="userName"
+>>>>>>> 088a728 (update README.md)
                             placeholder="Name"
                             value="{{session('createFields.userName', session('userName', ''))}}"
                         >
 
+<<<<<<< HEAD
                         <select
                             class="form-select rounded-pill m-1"
                             style="width: 100px; height: 35px;"
@@ -187,10 +193,24 @@
                                 </option>
                             @endfor
                         </select>
+=======
+                        <input
+                            id="ratingInput"
+                            class="form-control rounded-pill m-1" 
+                            style="width: 100px; height: 35px;"
+                            name="rating" 
+                            placeholder="Rating"
+                            value="{{session('createFields.rating', '')}}"
+                        >
+>>>>>>> 088a728 (update README.md)
                     </div>
                         
                     <div class="flex-grow-1 d-flex align-items-center">
                         <input
+<<<<<<< HEAD
+=======
+                            id="reviewTextInput"
+>>>>>>> 088a728 (update README.md)
                             class="form-control rounded-pill w-100 m-1"
                             style="height: 35px;"
                             type="text"
@@ -207,6 +227,7 @@
                     </div>
                 </div>
             </form>
+<<<<<<< HEAD
             @if (session('createError'))
             <div>
                 <small class="text-danger">{{session('createError')}}</small>
@@ -215,3 +236,53 @@
         </div>
     </div>
 </x-master>
+=======
+            <div>
+                <small id="ratingError" class="text-danger"></small><br>
+                <small id="reviewTextError" class="text-danger"></small><br>
+                @if (session('createError'))
+                <div>
+                    <small class="text-danger">{{session('createError')}}</small>
+                </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <script>
+        const ratingInputField = document.getElementById('ratingInput');
+        const ratingErrorField = document.getElementById('ratingError');
+
+        ratingInputField.addEventListener("input", displayRatingError);
+        function displayRatingError(e) {
+            const validRatings = [1, 2, 3, 4, 5];
+            if (validRatings.includes(Number(e.target.value))){
+                ratingErrorField.textContent = "";
+                ratingInputField.classList.remove('border-danger');
+                ratingInputField.classList.add('border-success');
+            } else {
+                ratingErrorField.textContent = "The review rating must be a number between 1 and 5.";
+                ratingInputField.classList.remove('border-success');
+                ratingInputField.classList.add('border-danger');
+            }
+        }
+    
+        const reviewTextInputField = document.getElementById('reviewTextInput');
+        const reviewTextErrorField = document.getElementById('reviewTextError');
+        
+        reviewTextInputField.addEventListener("input", displayReviewTextError);
+        function displayReviewTextError(e){
+            const wordCount = e.target.value.trim().split(" ").length;
+            if (wordCount >= 3){
+                reviewTextErrorField.textContent = "";
+                reviewTextInputField.classList.remove('border-danger');
+                reviewTextInputField.classList.add('border-success');
+            }
+            else{
+                reviewTextErrorField.textContent = "The review text must have a minimum of 3 words.";
+                reviewTextInputField.classList.remove('border-success');
+                reviewTextInputField.classList.add('border-danger');
+            }
+        }
+    </script>
+</x-master>
+>>>>>>> 088a728 (update README.md)
