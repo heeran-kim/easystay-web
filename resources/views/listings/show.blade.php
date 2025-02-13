@@ -169,31 +169,12 @@
                         <input
                             class="form-control rounded-pill m-1" 
                             style="width: 100px; height: 35px;" 
-<<<<<<< HEAD
-                            type="text" 
-                            name="userName" 
-=======
                             type="text"
                             name="userName"
->>>>>>> 088a728 (update README.md)
                             placeholder="Name"
                             value="{{session('createFields.userName', session('userName', ''))}}"
                         >
 
-<<<<<<< HEAD
-                        <select
-                            class="form-select rounded-pill m-1"
-                            style="width: 100px; height: 35px;"
-                            name="rating"
-                        >
-                            <option disabled selected>Rating</option>
-                            @for ($i=1; $i<=5; $i++)
-                                <option value={{$i}} {{session('createFields.rating') == $i ? 'selected' : ''}}>
-                                    {{$i}}
-                                </option>
-                            @endfor
-                        </select>
-=======
                         <input
                             id="ratingInput"
                             class="form-control rounded-pill m-1" 
@@ -202,15 +183,11 @@
                             placeholder="Rating"
                             value="{{session('createFields.rating', '')}}"
                         >
->>>>>>> 088a728 (update README.md)
                     </div>
                         
                     <div class="flex-grow-1 d-flex align-items-center">
                         <input
-<<<<<<< HEAD
-=======
                             id="reviewTextInput"
->>>>>>> 088a728 (update README.md)
                             class="form-control rounded-pill w-100 m-1"
                             style="height: 35px;"
                             type="text"
@@ -227,16 +204,6 @@
                     </div>
                 </div>
             </form>
-<<<<<<< HEAD
-            @if (session('createError'))
-            <div>
-                <small class="text-danger">{{session('createError')}}</small>
-            </div>
-            @endif
-        </div>
-    </div>
-</x-master>
-=======
             <div>
                 <small id="ratingError" class="text-danger"></small><br>
                 <small id="reviewTextError" class="text-danger"></small><br>
@@ -285,4 +252,3 @@
         }
     </script>
 </x-master>
->>>>>>> 088a728 (update README.md)

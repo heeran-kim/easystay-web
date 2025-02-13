@@ -17,10 +17,7 @@
 <script>
     const select = document.getElementById("sortSelect");
     const form = document.getElementById("sortForm");
-<<<<<<< HEAD
-=======
     
->>>>>>> 088a728 (update README.md)
     select.addEventListener("change", submitForm);
     function submitForm(e) {
         form.submit();
